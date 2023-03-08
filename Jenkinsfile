@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("raj80dockerid/test")
+       app = docker.build("ikoral/k8s-sample-gitops")
     }
 
     stage('Test image') {
@@ -21,10 +21,7 @@ node {
     }
 
     stage('Push image') {
-        
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
-        }
+        app.push("${env.BUILD_NUMBER}")
     }
     
     stage('Trigger ManifestUpdate') {
