@@ -21,10 +21,9 @@ node {
     }
 
     stage('Push image') {
-        docker.withRegistry('https://hub.docker.com', 'dockerhub') {
+        docker.withRegistry('https://hub.docker.com', 'ikoral-dockerhub') {
             app.push("${env.BUILD_NUMBER}")
         }
-        app.push("${env.BUILD_NUMBER}")
     }
     
     stage('Trigger ManifestUpdate') {
