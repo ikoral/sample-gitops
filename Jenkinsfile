@@ -29,10 +29,6 @@ podTemplate(yaml: '''
         git url: 'https://github.com/ikoral/sample-gitops.git', branch: 'main'
     }
 
-    stage('Build image') {
-       app = docker.build("ikoral/k8s-sample-gitops")
-    }
-
   stage('Build and Push Project') {
       container('kaniko') {
         stage('Build image') {
