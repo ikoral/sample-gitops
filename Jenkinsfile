@@ -43,7 +43,7 @@ podTemplate(yaml: '''
             sh 'echo "Tests passed"'
     }
     
-    stage('Trigger ManifestUpdate') {
+    stage('Trigger k8s deployment update') {
                 echo "triggering updatemanifestjob"
                 build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
