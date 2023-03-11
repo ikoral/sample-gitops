@@ -33,7 +33,7 @@ podTemplate(yaml: '''
       container('kaniko') {
         stage('Build image') {
           sh '''
-            /kaniko/executor -f `pwd`/Dockerfile -c `pwd` --destination ikoral/kaniko-demo-image:${BUILD_NUMBER}
+            /kaniko/executor -f `pwd`/Dockerfile -c `pwd` --destination ikoral/k8s-sample-gitops:${BUILD_NUMBER}
           '''
         }
       }
